@@ -12,8 +12,10 @@ view : Html
 view =
   div
     []
-    [ h1
-        []                  -- list of attributes
-        [ text "QuizR" ]    -- list of nodes
+    [ pageTitle
     , text "hello world"
     ]
+
+pageTitle : Html
+pageTitle =
+  h1 [] [ text "QuizR" ]
