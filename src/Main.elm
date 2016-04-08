@@ -32,7 +32,7 @@ view address question =
   div
     []
     [ pageTitle
-    , Question.View.view question
+    , Question.View.view address question
     ]
 
 pageTitle : Html
