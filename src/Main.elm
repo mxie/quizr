@@ -4,35 +4,48 @@ module Main (..) where
 import Html exposing (..)
 import Html.Attributes exposing (for, id, type', value)
 
+type alias Question =
+  { category : String
+  , difficulty: String
+  , text : String
+  }
+
+initialQuestion : Question
+initialQuestion =
+  { category = "Movie"
+  , difficulty = "hard"
+  , text = "What's the name of the first Star Wars movie?"
+  }
+
 -- String -> VirtualDom.Node
 main : Html
 main =
-  view
+  view initialQuestion
 
-view : Html
-view =
+view : Question -> Html
+view question' =
   div
     []
     [ pageTitle
-    , question
+    , question question'
     ]
 
 pageTitle : Html
 pageTitle =
   h1 [] [ text "QuizR" ]
 
-question : Html
-question =
+question : Question -> Html
+question question' =
   section
     []
     [ dl
         []
         [ dt [] [ text "Category" ]
-        , dd [] [ text "Movie" ]
+        , dd [] [ text question'.category ]
         , dt [] [ text "Difficulty" ]
-        , dd [] [ text "Hard" ]
+        , dd [] [ text question'.difficulty ]
         ]
-    , h2 [] [ text "What's the name of the first Star Wars movie?" ]
+    , h2 [] [ text question'.text ]
     , form
         []
         [ label [ for "answer" ] [ text "What's your answer?" ]
