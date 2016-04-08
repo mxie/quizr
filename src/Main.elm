@@ -1,9 +1,19 @@
 -- (..) will pull in everything
 module Main (..) where
 
-import Html exposing (Html, text)
+import Html exposing (Html, text, h1, div)
 
 -- String -> VirtualDom.Node
 main : Html
 main =
-  text "hello world"
+  view
+
+view : Html
+view =
+  div
+    []
+    [ h1
+        []                  -- list of attributes
+        [ text "QuizR" ]    -- list of nodes
+    , text "hello world"
+    ]
