@@ -3,26 +3,14 @@ module Main (..) where
 
 import Html exposing (..)
 import Html.Attributes exposing (for, id, type', value)
-
-type alias Question =
-  { category : String
-  , difficulty: String
-  , text : String
-  }
-
-initialQuestion : Question
-initialQuestion =
-  { category = "Movie"
-  , difficulty = "hard"
-  , text = "What's the name of the first Star Wars movie?"
-  }
+import Question.Model exposing (..)
 
 -- String -> VirtualDom.Node
 main : Html
 main =
-  view initialQuestion
+  view initialModel
 
-view : Question -> Html
+view : Model -> Html
 view question' =
   div
     []
@@ -34,7 +22,7 @@ pageTitle : Html
 pageTitle =
   h1 [] [ text "QuizR" ]
 
-question : Question -> Html
+question : Model -> Html
 question question' =
   section
     []
